@@ -1,0 +1,103 @@
+\documentclass[a4paper,10pt,twoside]{report}
+
+\usepackage{Packages}
+
+\addto\captionsbritish{\renewcommand{\contentsname}{Inhaltsverzeichnis}}
+
+\graphicspath{{Figures}}
+
+%\linenumbers
+
+%\newcommand{\angabe}{Files/Angabe.pdf}
+\newcommand{\aufgaben}{2}
+
+\newcommand{\researchgroup}{Kursname}
+
+\newcommand{\shortdoctitle}{Übung 1}
+\newcommand{\doctitle}{1.Übung}
+\newcommand{\docsubtitle}{}
+
+\newcommand{\authorone}{Name}
+\newcommand{\sauthorone}{Matrikelnummer}
+%\newcommand{\authorthree}{Name}
+%\newcommand{\sauthorthree}{Matrikelnummer}
+%\newcommand{\authortwo}{Name}
+%\newcommand{\sauthortwo}{Matrikelnummer}
+\newcommand{\keywords}{RTO, ESD}
+\newcommand{\version}{Erste version}
+
+\newcommand{\firstCommitteeMember}{Prof}
+\newcommand{\secondCommitteeMember}{}
+\newcommand{\thirdCommitteeMember}{}
+
+\ifdefined\authorthree
+\newcommand{\authors}{\authorone, \authortwo, \authorthree}
+\else
+\ifdefined\authortwo
+\newcommand{\authors}{\authorone, \authortwo}
+\else
+\newcommand{\authors}{\authorone}
+\fi
+\fi
+
+\author{\me}
+
+\hypersetup
+{
+    pdfauthor   = {\authors},
+    pdftitle    = {\shortdoctitle},
+    pdfsubject  = {\doctitle},
+    pdfkeywords = {\keywords}
+}
+
+\begin{document}
+
+\include{Titlepage}
+
+\normalsize
+\ifdefined\angabe
+\includepdf[pages=1,%
+    pagecommand={%
+        \chapter*{Angabe} %
+        \label{chapter:Angabe} %
+        \thispagestyle{empty}%
+    }, %
+    fitpaper=true, %
+    offset=0 -110, %
+    picturecommand*={%
+        \put(130,562){\authors}%
+    }]{\angabe}
+\includepdf[pages=2-,pagecommand={\thispagestyle{empty}}, fitpaper=true, trim=0 4cm 0 0]{\angabe}
+\fi
+\setcounter{page}{0}
+\pagenumbering{roman}
+
+\tableofcontents
+
+\ifnum\aufgaben>0
+\chapter{Übungsaufgabe A}\label{chapter:TaskOne}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\input{Aufgaben/Chapter1.tex}
+\fi
+
+\ifnum\aufgaben>1
+    \chapter{Übungsaufgabe B}\label{chapter:TaskTwo}
+    \input{Aufgaben/Chapter2.tex}
+\fi
+\ifnum\aufgaben>2
+    \chapter{Übungsaufgabe C}\label{chapter:TaskThree}
+    \input{Aufgaben/Chapter3.tex}
+\fi
+\ifnum\aufgaben>3
+    \chapter{Übungsaufgabe D}\label{chapter:TaskFour}
+    \input{Aufgaben/Chapter4.tex}
+\fi
+\ifnum\aufgaben>4
+    \chapter{Übungsaufgabe E}\label{chapter:TaskFive}
+    \input{Aufgaben/Chapter5.tex}
+\fi
+%\bibliographystyle{unsrt}
+%\bibliography{References}
+
+\end{document}

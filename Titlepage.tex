@@ -1,0 +1,64 @@
+\begin{titlepage}
+\begin{center}
+\includegraphics[height=2cm]{Figures/fh-logo.jpg} \\
+\large
+\researchgroup
+
+\vspace*{10cm}
+
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+
+\newlength{\backupparindent}
+\setlength{\backupparindent}{\parindent}
+\setlength{\parindent}{0mm}
+
+\begin{textblock}{155}(32,89)
+    \vspace*{1mm}
+    \huge
+    \textbf{\doctitle \\}
+    \Large
+    \vspace*{5mm}
+    \textit{\docsubtitle} \\
+    \vspace*{5mm}
+    \Large
+    \ifdefined\authorthree
+        \begin{tabular}{c c c c c}
+                \authorone & \& & \authortwo & \& & \authorthree \\
+                \sauthorone & & \sauthortwo & & \sauthorthree \\
+        \end{tabular} \\
+    \else
+        \ifdefined\authortwo
+            \begin{tabular}{c c c}
+                    \authorone & \& & \authortwo \\
+                    \sauthorone & & \sauthortwo \\
+            \end{tabular} \\
+        \else
+            \begin{tabular}{c c c}
+                    \authorone \\
+                    \sauthorone \\
+            \end{tabular} \\
+        \fi
+    \fi
+    
+\end{textblock}
+
+\large
+Lektor: \\
+\begin{tabular}{c}
+    \firstCommitteeMember \\
+    \secondCommitteeMember \\
+    \thirdCommitteeMember \\
+\end{tabular}
+
+\vfill
+\version
+
+\vfill
+%\docdate \\
+\large
+Hagenberg, \today \\
+
+\setlength{\parindent}{\backupparindent}
+\end{center}
+\end{titlepage} 
